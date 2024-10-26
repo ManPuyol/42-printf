@@ -52,7 +52,7 @@ int	ft_putnbr_base(long num, char *base)
 	base_lenght = ft_strlen(base);
 	print_chars = 0;
 	if (base_lenght <= 1 || invalid_base(base) == 1)
-		return ;
+		return (0);
 	if (num < 0)
 	{
 		write(1, "-", 1);
