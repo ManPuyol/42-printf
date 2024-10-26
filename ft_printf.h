@@ -21,7 +21,7 @@
 
 int		ft_printf(char const *, ...);
 int		ft_vprintf(char const *, va_list args);
-void	ft_putnbr_base(long num, char *base);
+int		ft_putnbr_base(long num, char *base);
 
 int		count_digits(long long n);
 
