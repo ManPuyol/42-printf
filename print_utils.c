@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manorteg <manorteg@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: manorteg <manorteg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 12:07:02 by manorteg          #+#    #+#             */
-/*   Updated: 2024/10/26 12:07:02 by manorteg         ###   ########.fr       */
+/*   Updated: 2024/10/26 18:28:07 by manorteg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ int	print_pointer(va_list args)
 	unsigned long	pointer;
 
 	pointer = va_arg(args, unsigned long);
-	if (pointer == 0 || pointer == NULL)
+	if (pointer == 0)
 	{
-		print_string("(nil)");
+		ft_putstr_fd("(nil)",1);
 		return (5);
 	}
 	ft_putstr_fd("0x", 1);
