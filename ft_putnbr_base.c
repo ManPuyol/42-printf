@@ -41,7 +41,7 @@ void	ft_putnbr_base_recursive(int num, char *base, int lenght, int *printed_char
 	if (num >= lenght)
 		ft_putnbr_base_recursive(num / lenght, base, lenght, printed_chars);
 	write(1, &(char){base[num % lenght]}, 1);
-	*printed_chars++;
+	(*printed_chars)++;
 }
 
 int	ft_putnbr_base(long num, char *base)
@@ -50,7 +50,7 @@ int	ft_putnbr_base(long num, char *base)
 	int		printed_chars;
 
 	base_lenght = ft_strlen(base);
-	print_chars = 0;
+	printed_chars = 0;
 	if (base_lenght <= 1 || invalid_base(base) == 1)
 		return (0);
 	if (num < 0)
