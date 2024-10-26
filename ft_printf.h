@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manorteg <manorteg@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,17 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-#include <stdio.h>
-#include <aio.h>
-#include <stdarg.h>
-#include "./libft/libft.h"
+# include <stdio.h>
+# include <aio.h>
+# include <stdarg.h>
+# include <unistd.h>
+# include <limits.h>
 
-int ft_printf(char const *, ...);
+int		ft_printf(char const *, ...);
+int		ft_vprintf(char const *, va_list args);
+void	ft_putnbr_base(long num, char *base);
 
-int ft_vprintf(char const *, va_list);
+int		count_digits(long long n);
+
+int		print_pointer(va_list args);
+int		print_unsisgned_nbr(va_list args, char *base);
+int		print_nbr(va_list args, char *base);
+int		print_char(va_list args);
+int		print_string(va_list args);
+
+// temp
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putchar_fd(char c, int fd);
+int		ft_strlen(char *str);
 
 #endif
-

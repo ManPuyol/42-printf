@@ -1,31 +1,24 @@
 NAME = libftprintf.a
-CC = cc
+CC = clang
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_printf.c # Add other source files as needed
+SRCS = ft_printf.c ft_putchar_fd.c ft_putstr_fd.c ft_strlen.c \
+	print_utils.c ft_putnbr_base.c # Add other source files as needed
 OBJS = $(SRCS:.c=.o)
-
-LIBFT_DIR = ./libft
-LIBFT = $(LIBFT_DIR)/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
-	ar rcs $(NAME) $(OBJS)
+$(NAME): $(OBJS) 
+	ar rcs $(NAME) $(OBJS) 
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(LIBFT):
-	make -C $(LIBFT_DIR)
-
 clean:
 	rm -f $(OBJS)
-	make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
-	make -C $(LIBFT_DIR) fclean
 
 re:	fclean all
 
