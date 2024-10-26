@@ -39,7 +39,7 @@ int	invalid_base(char *base)
 void	ft_putnbr_base_recursive(int num, char *base, int lenght, int *printed_chars)
 {
 	if (num >= lenght)
-		ft_putnbr_base_recursive(num / lenght, base, lenght);
+		ft_putnbr_base_recursive(num / lenght, base, lenght, printed_chars);
 	write(1, &(char){base[num % lenght]}, 1);
 	*printed_chars++;
 }
