@@ -17,6 +17,8 @@ int	print_string(va_list args)
 	char	*str;
 
 	str = va_arg(args, char *);
+	if (str == NULL)
+		str = "(null)";
 	ft_putstr_fd(str, 1);
 	return (ft_strlen(str));
 }
@@ -53,6 +55,11 @@ int	print_pointer(va_list args)
 	unsigned long	pointer;
 
 	pointer = va_arg(args, unsigned long);
+	if (pointer == 0 || pointer == NULL)
+	{
+		print_string("(nil)");
+		return (5);
+	}
 	ft_putstr_fd("0x", 1);
 	ft_putnbr_base(pointer, "0123456789abcdef");
 	return (count_digits(pointer) + 2);
