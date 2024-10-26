@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manorteg <manorteg@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: manorteg <manorteg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 20:05:32 by manorteg          #+#    #+#             */
-/*   Updated: 2024/10/19 20:05:32 by manorteg         ###   ########.fr       */
+/*   Updated: 2024/10/26 22:26:47 by manorteg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ int	print_format(char sentence, va_list args)
 	if (sentence == 'u')
 		return (print_unsisgned_nbr(args, "0123456789"));
 	if (sentence == 'x')
-		return (print_nbr(args, "0123456789abcdef"));
+		return (print_unsisgned_nbr(args, "0123456789abcdef"));
 	if (sentence == 'X')
-		return (print_nbr(args, "0123456789ABCDEF"));
+		return (print_unsisgned_nbr(args, "0123456789ABCDEF"));
 	if (sentence == '%')
 	{
 		ft_putchar_fd('%', 1);
@@ -97,10 +97,10 @@ int	ft_printf(char const *sentence, ...)
 //     char c = 'A';
 //     char *s = "Hello, World!";
 //     void *p = (void *)0x12345678;
-//     int d = -42.24;
+//     int d = -42;
 //     int i = 033;
 //     unsigned int u = 3000000000;
-//     int x = 0xabcdef;
+//     int x = -1;
 //     int X = 0xABCDEF;
 
 //     // Testing each format specifier
@@ -114,7 +114,8 @@ int	ft_printf(char const *sentence, ...)
 //     printf("%%x: %x\n", x);
 //     printf("%%X: %X\n", X);
 //     printf("%%%%: %%\n");
-
+// 	printf(" %p %p ", LONG_MIN, LONG_MAX);
+// 	printf(" %p %p ", ULONG_MAX, -ULONG_MAX);
 //     printf("\nYour ft_printf:\n");
 //     ft_printf("%%c: %c\n", c);
 //     ft_printf("%%s: %s\n", s);
@@ -125,7 +126,8 @@ int	ft_printf(char const *sentence, ...)
 //     ft_printf("%%x: %x\n", x);
 //     ft_printf("%%X: %X\n", X);
 //     ft_printf("%%%%: %%\n");
-
+// 	ft_printf(" %p %p ", LONG_MIN, LONG_MAX);
+// 	ft_printf(" %p %p ", ULONG_MAX, -ULONG_MAX);
 //     // Testing edge cases
 //     printf("\nTesting edge cases:\n");
 //     printf("Standard printf:\n");

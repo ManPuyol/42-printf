@@ -6,7 +6,7 @@
 /*   By: manorteg <manorteg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 12:07:02 by manorteg          #+#    #+#             */
-/*   Updated: 2024/10/26 18:28:07 by manorteg         ###   ########.fr       */
+/*   Updated: 2024/10/26 22:20:18 by manorteg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	print_nbr(va_list args, char *base)
 	int	nbr;
 
 	nbr = va_arg(args, int);
-	ft_putnbr_base(nbr, base);
 	return (ft_putnbr_base(nbr, base));
 }
 
@@ -46,20 +45,19 @@ int	print_unsisgned_nbr(va_list args, char *base)
 	unsigned int	nbr;
 
 	nbr = va_arg(args, unsigned int);
-	ft_putnbr_base(nbr, base);
 	return (ft_putnbr_base(nbr, base));
 }
 
 int	print_pointer(va_list args)
 {
-	unsigned long	pointer;
+	unsigned long long	pointer;
 
-	pointer = va_arg(args, unsigned long);
+	pointer = va_arg(args, unsigned long long);
 	if (pointer == 0)
 	{
-		ft_putstr_fd("(nil)",1);
+		ft_putstr_fd("(nil)", 1);
 		return (5);
 	}
 	ft_putstr_fd("0x", 1);
-	return (ft_putnbr_base(pointer, "0123456789abcdef") + 2);
+	return (ft_putptr_base(pointer, "0123456789abcdef") + 2);
 }

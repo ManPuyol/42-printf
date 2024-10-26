@@ -19,9 +19,9 @@
 # include <unistd.h>
 # include <limits.h>
 
-int		ft_printf(char const *, ...);
-int		ft_vprintf(char const *, va_list args);
+int		ft_printf(char const *sentence, ...);
 int		ft_putnbr_base(long num, char *base);
+int		ft_putptr_base(long unsigned int num, char *base);
 
 int		count_digits(long long n);
 
