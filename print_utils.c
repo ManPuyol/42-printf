@@ -38,7 +38,7 @@ int	print_nbr(va_list args, char *base)
 
 	nbr = va_arg(args, int);
 	ft_putnbr_base(nbr, base);
-	return (count_digits(nbr));
+	return (ft_putnbr_base(nbr, base));
 }
 
 int	print_unsisgned_nbr(va_list args, char *base)
@@ -47,7 +47,7 @@ int	print_unsisgned_nbr(va_list args, char *base)
 
 	nbr = va_arg(args, unsigned int);
 	ft_putnbr_base(nbr, base);
-	return (count_digits(nbr));
+	return (ft_putnbr_base(nbr, base));
 }
 
 int	print_pointer(va_list args)
@@ -61,6 +61,5 @@ int	print_pointer(va_list args)
 		return (5);
 	}
 	ft_putstr_fd("0x", 1);
-	ft_putnbr_base(pointer, "0123456789abcdef");
-	return (count_digits(pointer) + 2);
+	return (ft_putnbr_base(pointer, "0123456789abcdef") + 2);
 }

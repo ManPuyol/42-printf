@@ -36,26 +36,32 @@ int	invalid_base(char *base)
 	return (0);
 }
 
-void	ft_putnbr_base_recursive(int num, char *base, int lenght)
+void	ft_putnbr_base_recursive(int num, char *base, int lenght, int *printed_chars)
 {
 	if (num >= lenght)
 		ft_putnbr_base_recursive(num / lenght, base, lenght);
 	write(1, &(char){base[num % lenght]}, 1);
+	*printed_chars++;
 }
 
-void	ft_putnbr_base(long num, char *base)
+int	ft_putnbr_base(long num, char *base)
 {
 	int		base_lenght;
+	int		printed_chars;
 
 	base_lenght = ft_strlen(base);
+	print_chars = 0;
 	if (base_lenght <= 1 || invalid_base(base) == 1)
 		return ;
 	if (num < 0)
 	{
 		write(1, "-", 1);
+		printed_chars++;
 		num *= -1;
 	}
 	if (num >= base_lenght)
-		ft_putnbr_base_recursive(num / base_lenght, base, base_lenght);
+		ft_putnbr_base_recursive(num / base_lenght, base, base_lenght, &printed_chars);
 	write(1, &(char){base[num % base_lenght]}, 1);
+	printed_chars++;
+	return (printed_chars);
 }
